@@ -8,7 +8,7 @@ import {ThemeProvider } from 'styled-components';
 import theme from 'utils/theme';
 import GlobalStyles from './index.css.js';
 
-import { Navigation } from 'components';
+import { Navigation, Wrapper } from 'components';
 
 function App() {
   return (
@@ -18,8 +18,17 @@ function App() {
         <Navigation items={[
           {content: 'Homepage', to: '/'},
           {content: 'Budget', to: '/budget'}
-        ]}/>
-        <Switch>
+        ]}
+          RightElement={(
+            <div>
+              <button>PL</button>
+              <button>EN</button>
+            </div>
+          )}
+        />
+
+        <Wrapper>
+          <Switch>
           <Route exact path="/">
             Hompepage
           </Route>
@@ -27,6 +36,8 @@ function App() {
             Budget page
           </Route>
         </Switch>
+        </Wrapper>
+        
       </Router>
 
     </ThemeProvider>

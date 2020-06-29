@@ -1,14 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import { Wrapper } from 'components';
+import {Container, List, NavigatorWrapper} from './Navigation.css';
 
-import {Container, List} from './Navigation.css';
-
-function Navigation({items}){
+function Navigation({items = [], RightElement}){
     return(
         <Container>
-            <Wrapper>
+            <NavigatorWrapper>
                 <List>
                     {items.map(item => (
                         <li key={item.to}>
@@ -16,9 +15,14 @@ function Navigation({items}){
                             </li>
                     ))}
                 </List>
-            </Wrapper>
+                {RightElement}
+            </NavigatorWrapper>
         </Container>
     )
 }
+
+Navigation.propTypes = {
+    items: PropTypes.array.isRequired,
+};
 
 export default Navigation;
