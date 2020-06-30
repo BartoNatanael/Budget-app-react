@@ -4,25 +4,27 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import {ThemeProvider } from 'styled-components';
 import theme from 'utils/theme';
 import GlobalStyles from './index.css.js';
 
-import { Navigation, Wrapper } from 'components';
+import { Navigation, Wrapper, LoadingIndicator } from 'components';
 
 function App() {
+  const { t, i18n } = useTranslation();
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <GlobalStyles/>
       <Router>
         <Navigation items={[
-          {content: 'Homepage', to: '/'},
-          {content: 'Budget', to: '/budget'}
+          {content: t('Homepage'), to: '/'},
+          {content: t('Budget'), to: '/budget'}
         ]}
           RightElement={(
             <div>
-              <button>PL</button>
-              <button>EN</button>
+              <button onClick={()=>i18n.changeLanguage('pl')}>PL</button>
+              <button onClick={()=>i18n.changeLanguage('en')}>EN</button>
             </div>
           )}
         />
@@ -39,9 +41,18 @@ function App() {
         </Wrapper>
         
       </Router>
-
-    </ThemeProvider>
+    </>
   );
 }
 
-export default App;
+function RootApp(){
+  return(
+    <ThemeProvider theme={theme}>
+      <React.Suspense fallback={<LoadingIndicator/>}>
+        <App/>
+      </React.Suspense>
+    </ThemeProvider>
+  )
+}
+
+export default RootApp;
