@@ -1,6 +1,6 @@
 import {
     BUDGET_GET,
-    BUDGETED_CATEGORIES_GET,
+    BUDGETED_CATEGORIES_GET
 } from 'data/constants';
 
 import API from 'data/fetch';
