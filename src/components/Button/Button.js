@@ -23,7 +23,6 @@ function Button ({ variant, children, ...props }){
         </Component>
     ), [props, children]);
 
-    console.log(Component)
     return to ? (
         <Link {...props}>
             {content}

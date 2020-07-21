@@ -2,15 +2,14 @@ import React, {useState} from 'react';
 
 const Item = ({item, onClickHandler, isActive}) => (
     <div>
-        <item.Triggeer onClick={onClickHandler}/>
+        <item.Trigger onClick={onClickHandler} />
         {isActive && item.children}
     </div>
 )
 
 function ToggleableList({items}){
 
-    const [selectedItem, setSelectedItem] = useState('string');
-
+    const [selectedItem, setSelectedItem] = useState();
     return(
         <>
         {items.map(item => (
