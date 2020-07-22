@@ -7,6 +7,7 @@ import { Grid } from './Budget.css'
 import { LoadingIndicator } from 'components';
 
 import BudgetCategoryList from 'pages/Budget/components/BudgetCategoryList';
+import BudgetTransactionList from 'pages/Budget/components/BudgetTransactionList';
 
 function Budget ({ 
   commonState , budgetState,
@@ -29,7 +30,7 @@ function Budget ({
             )}
           </section>
           <section>
-            {isLoaded ? 'Transaction List' : (
+            {isLoaded ? <BudgetTransactionList></BudgetTransactionList> : (
                 <LoadingIndicator></LoadingIndicator>
               )}
           </section>
