@@ -4,7 +4,7 @@ import { fetchBudget, fetchBudgetedCategories } from 'data/actions/budget.action
 import { fetchAllCategories } from 'data/actions/common.action';
 
 import { Grid } from './Budget.css'
-import { LoadingIndicator } from 'components';
+import { LoadingIndicator, Modal } from 'components';
 
 import BudgetCategoryList from 'pages/Budget/components/BudgetCategoryList';
 import BudgetTransactionList from 'pages/Budget/components/BudgetTransactionList';
@@ -23,6 +23,7 @@ function Budget ({
 
     return (
         <Grid>
+          <Modal></Modal>
           <section>
             {isLoaded ?
              <BudgetCategoryList></BudgetCategoryList> : (
