@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { connect } from 'react-redux';
 import { groupBy } from 'lodash';
 import { useTranslation } from 'react-i18next';
@@ -22,6 +22,19 @@ function BudgetCategoryList({
             item => allCategories.find(category => category.id === item.categoryId).parentCategory.name),
         [budgetedCategories, allCategories],
       );
+
+    const handleClickParentCategoryRef = useRef(null);
+
+    const handleClearParentCagetogySelect = () => {
+        handleClickParentCategoryRef.current();
+        selectParentCategory();
+        
+    };
+
+    const handleSelectRestParentCategories = () => {
+        selectParentCategory(null);
+        handleClickParentCategoryRef.current();
+    }
 
     const listItems = Object.entries(budgetedCategoriesByParent).map(([parentName, categories])=>({
         id: parentName,
@@ -82,11 +95,13 @@ function BudgetCategoryList({
                 <ParentCategory
                 name={budget.name}
                 amount={restToSpent}
+                onClick={handleClearParentCagetogySelect}
             />
             </div>
             
             <ToggleableList
                 items={listItems}
+                clickRef={handleClickParentCategoryRef}
             />
             <div
                 css={`
@@ -96,6 +111,7 @@ function BudgetCategoryList({
                 <ParentCategory
                 name={t('Other Categories')}
                 amount={availableForRestCategories}
+                onClick={handleSelectRestParentCategories}
             />
             </div>
         </div>
