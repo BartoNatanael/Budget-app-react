@@ -1,13 +1,15 @@
 import React, {useEffect, useMemo} from 'react';
+import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchBudget, fetchBudgetedCategories } from 'data/actions/budget.action';
 import { fetchAllCategories } from 'data/actions/common.action';
 
 import { Grid } from './Budget.css'
-import { LoadingIndicator, Modal } from 'components';
+import { LoadingIndicator, Modal, Button } from 'components';
 
 import BudgetCategoryList from 'pages/Budget/components/BudgetCategoryList';
 import BudgetTransactionList from 'pages/Budget/components/BudgetTransactionList';
+import AddTransactionForm from 'pages/Budget/components/AddTransactionForm';
 
 function Budget ({ 
   commonState , budgetState,
@@ -22,8 +24,8 @@ function Budget ({
     )
 
     return (
-        <Grid>
-          <Modal></Modal>
+      <>
+        <Grid>          
           <section>
             {isLoaded ?
              <BudgetCategoryList></BudgetCategoryList> : (
@@ -31,11 +33,25 @@ function Budget ({
             )}
           </section>
           <section>
-            {isLoaded ? <BudgetTransactionList></BudgetTransactionList> : (
+            {isLoaded ? 
+            <>
+            <Button to='budget/transactions/new'>Add new transactions</Button>
+            <BudgetTransactionList/>
+            </>
+            : (
                 <LoadingIndicator></LoadingIndicator>
               )}
           </section>
         </Grid>
+
+        <Switch>
+              <Route path='/budget/transactions/new'>
+                <Modal>
+                  <AddTransactionForm/>
+                </Modal>
+              </Route>
+        </Switch>
+      </>
     )
 }
 
