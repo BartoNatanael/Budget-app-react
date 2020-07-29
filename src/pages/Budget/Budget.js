@@ -12,7 +12,7 @@ import BudgetTransactionList from 'pages/Budget/components/BudgetTransactionList
 import AddTransactionForm from 'pages/Budget/components/AddTransactionForm';
 
 function Budget ({ 
-  commonState , budgetState,
+  commonState , budgetState, allCategories,
   fetchBudget, fetchBudgetedCategories, fetchAllCategories }) {
     useEffect(() => {
         fetchBudget(1);
@@ -21,7 +21,11 @@ function Budget ({
       },[fetchBudget, fetchBudgetedCategories, fetchAllCategories])
       const isLoaded = useMemo(() => (!!commonState &&  Object.keys(commonState).length === 0) && (!!budgetState && Object.keys(budgetState).length === 0), 
       [commonState, budgetState]
-    )
+    );
+
+    const handleSubmitAddTransaction = (values) => {
+      console.log(values)
+    }
 
     return (
       <>
@@ -47,7 +51,11 @@ function Budget ({
         <Switch>
               <Route path='/budget/transactions/new'>
                 <Modal>
-                  <AddTransactionForm/>
+                  <AddTransactionForm
+                  categories={allCategories}
+                  groupCategoriesBy='parentCategory.name'
+                  onSubmit={handleSubmitAddTransaction}
+                  />
                 </Modal>
               </Route>
         </Switch>
@@ -59,7 +67,8 @@ export default connect(state => {
     return{
       budget: state.budget.budget,
       commonState: state.common.loadingState,
-      budgetState: state.budget.loadingState
+      budgetState: state.budget.loadingState,
+      allCategories: state.common.allCategories,
     }
   }, {
     fetchBudget,

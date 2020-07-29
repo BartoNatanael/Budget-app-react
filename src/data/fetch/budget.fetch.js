@@ -8,4 +8,8 @@ export const fetchBudgetedCategories = (id) => {
     const promise = fetch(`${process.env.REACT_APP_API_URL}/budgets/${id}/budgetCategories`);
 
     return promise
+};
+
+export const addTransaction = () => {
+    const promise = fetch(`${process.env.REACT_APP_API_URL}/budgets/${id}/budgetCategories`);
 }

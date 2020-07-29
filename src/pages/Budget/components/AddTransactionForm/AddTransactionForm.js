@@ -8,6 +8,7 @@ function AddTransactionForm({ onSubmit = noop, categories, groupCategoriesBy }) 
   const groupedCategoriesByParentName = groupCategoriesBy
     ? groupBy(categories, groupCategoriesBy)
     : null;
+    
   const categoryItems = useMemo(
     () => groupedCategoriesByParentName
       ? Object.entries(groupedCategoriesByParentName)

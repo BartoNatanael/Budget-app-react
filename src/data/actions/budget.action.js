@@ -24,6 +24,14 @@ export const fetchBudgetedCategories = (id) => {
     });
 }
 
+export const addTransaction = () => {
+    const promise = API.budget.addTransaction();
+
+    return {
+        
+    }
+}
+
 export const selectParentCategory = (id) => {
     return {
         type: SET_SELECTED_PARENT_CATEGORY_ID,
