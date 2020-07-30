@@ -1,7 +1,9 @@
 import React, {useEffect, useMemo} from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchBudget, fetchBudgetedCategories } from 'data/actions/budget.action';
+import { 
+  fetchBudget, fetchBudgetedCategories, addTransaction, 
+  } from 'data/actions/budget.action';
 import { fetchAllCategories } from 'data/actions/common.action';
 
 import { Grid } from './Budget.css'
@@ -12,8 +14,9 @@ import BudgetTransactionList from 'pages/Budget/components/BudgetTransactionList
 import AddTransactionForm from 'pages/Budget/components/AddTransactionForm';
 
 function Budget ({ 
-  commonState , budgetState, allCategories,
-  fetchBudget, fetchBudgetedCategories, fetchAllCategories }) {
+  commonState , budgetState, allCategories, budget,
+  fetchBudget, fetchBudgetedCategories, fetchAllCategories, addTransaction }) {
+    const history = useHistory();
     useEffect(() => {
         fetchBudget(1);
         fetchBudgetedCategories(1);
@@ -24,7 +27,12 @@ function Budget ({
     );
 
     const handleSubmitAddTransaction = (values) => {
-      console.log(values)
+      addTransaction({
+        budgetId: budget.id,
+        data: values,
+      }).then(()=>{
+        history.goBack();
+      })
     }
 
     return (
@@ -73,5 +81,6 @@ export default connect(state => {
   }, {
     fetchBudget,
     fetchBudgetedCategories,
-    fetchAllCategories
+    fetchAllCategories,
+    addTransaction,
   })(Budget);

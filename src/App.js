@@ -5,6 +5,8 @@ import {
   Route
 } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { Toast } from 'react-toastify';
+
 import {ThemeProvider } from 'styled-components';
 import theme from 'utils/theme';
 import GlobalStyles from './index.css.js';
