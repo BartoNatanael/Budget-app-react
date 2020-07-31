@@ -152,6 +152,14 @@
       "categoryId": "5",
       "date": "2019-12-18T13:38:41.768Z",
       "budgetId": "1"
+    },
+    {
+      "categoryId": "7",
+      "description": "Kurs",
+      "amount": 50,
+      "date": "2019-12-12",
+      "budgetId": "1",
+      "id": "6ykhLG2"
     }
   ]
 }
