@@ -5,7 +5,8 @@ import {
   Route
 } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { Toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {ThemeProvider } from 'styled-components';
 import theme from 'utils/theme';
@@ -13,6 +14,8 @@ import GlobalStyles from './index.css.js';
 
 import { Navigation, Wrapper, LoadingIndicator, Button } from 'components';
 import Budget from 'pages/Budget';
+
+toast.configure();
 
 function App({ budget, fetchBudget, fetchBudgetedCategories }) {
 
