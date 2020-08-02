@@ -2,6 +2,8 @@ import React, { useMemo, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { groupBy } from 'lodash';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from 'react-query';
+import API from 'data/fetch';
 import 'styled-components/macro';
 
 import {ToggleableList} from 'components';
@@ -10,10 +12,13 @@ import CategoryItem from './CategoryItem';
 
 import { selectParentCategory } from 'data/actions/budget.action';
 
-function BudgetCategoryList({
-    budgetedCategories, allCategories, budget,
-    selectParentCategory
-    }) {
+function BudgetCategoryList({ selectParentCategory }) {
+        
+        const { data: budget } = useQuery(['budget', {id: 1}], API.budget.fetchBudget);
+        const { data: allCategories } = useQuery('allCategories', API.common.fetchAllCategories);
+        const { data: budgetedCategories } = useQuery(
+            ['budgetedCategories', {id: 1}], 
+            API.budget.fetchBudgetedCategories);
     const { t } = useTranslation();
 
     const budgetedCategoriesByParent = useMemo(
@@ -104,8 +109,6 @@ function BudgetCategoryList({
         budget.totalAmount - amountTaken - notBudgetedExpenses,
         [budget.totalAmount, amountTaken, notBudgetedExpenses]
         );
-
-    console.log(availableForRestCategories)
     
     return(
         <div>
@@ -140,10 +143,6 @@ function BudgetCategoryList({
     )
 }
 
-export default connect(state => ({
-    budgetedCategories: state.budget.budgetedCategories,
-    allCategories: state.common.allCategories,
-    budget: state.budget.budget,
-}),{
+export default connect(null,{
     selectParentCategory
 })(BudgetCategoryList);

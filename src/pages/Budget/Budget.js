@@ -18,9 +18,9 @@ function Budget ({
   fetchBudget, fetchBudgetedCategories, fetchAllCategories, addTransaction }) {
     const history = useHistory();
     useEffect(() => {
-        fetchBudget(1);
-        fetchBudgetedCategories(1);
-        fetchAllCategories()
+        // fetchBudget(1);
+        // fetchBudgetedCategories(1);
+        // fetchAllCategories()
       },[fetchBudget, fetchBudgetedCategories, fetchAllCategories])
       const isLoaded = useMemo(() => (!!commonState &&  Object.keys(commonState).length === 0) && (!!budgetState && Object.keys(budgetState).length === 0), 
       [commonState, budgetState]
@@ -39,20 +39,17 @@ function Budget ({
       <>
         <Grid>          
           <section>
-            {isLoaded ?
-             <BudgetCategoryList></BudgetCategoryList> : (
-              <LoadingIndicator></LoadingIndicator>
-            )}
+
+             <BudgetCategoryList></BudgetCategoryList> 
+            
           </section>
           <section>
-            {isLoaded ? 
+
             <>
             <Button to='budget/transactions/new'>Add new transactions</Button>
             <BudgetTransactionList/>
             </>
-            : (
-                <LoadingIndicator></LoadingIndicator>
-              )}
+
           </section>
         </Grid>
 

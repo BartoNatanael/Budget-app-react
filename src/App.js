@@ -5,6 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { ReactQueryConfigProvider } from 'react-query';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -53,14 +54,21 @@ function App({ budget, fetchBudget, fetchBudgetedCategories }) {
   );
 }
 
+const queryConfig = {
+  suspense: true, 
+}
+
 
 function RootApp(){
   return(
-    <ThemeProvider theme={theme}>
-      <React.Suspense fallback={<LoadingIndicator/>}>
-        <App/>
-      </React.Suspense>
-    </ThemeProvider>
+    <ReactQueryConfigProvider config={queryConfig}>
+      <ThemeProvider theme={theme}>
+        <React.Suspense fallback={<LoadingIndicator/>}>
+          <App/>
+        </React.Suspense>
+      </ThemeProvider>
+    </ReactQueryConfigProvider>
+    
   )
 }
 

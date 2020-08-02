@@ -1,38 +1,44 @@
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
 import { groupBy } from 'lodash';
+import { useQuery } from 'react-query';
 
 import { formatCurrency, formatDate } from 'utils';
+import API from 'data/fetch';
 
 import { List, ListItem } from './BudgetTransactionList.css';
 
-function BudgetTransactionList({ transactions, allCategories, budgetedCategories,
-selectedParentCategoryId }){
-    const filteredTransactionsBySelectedParentCategory = useMemo(()=>{
-        if(typeof selectedParentCategoryId === 'undefined'){
-            return transactions;
-        } if (selectedParentCategoryId===null){
-            return transactions.filter(transaction => {
-                const hasBudgetCategory = budgetedCategories.some(budgetedCategory => budgetedCategory.categoryId === transaction.categoryId);
+function BudgetTransactionList({ selectedParentCategoryId }){
+    const { data: budget } = useQuery(['budget', {id: 1}], API.budget.fetchBudget);
+    const { data: allCategories } = useQuery('allCategories', API.common.fetchAllCategories);
+    const { data: budgetedCategories } = useQuery(
+        ['budgetedCategories', {id: 1}], 
+        API.budget.fetchBudgetedCategories);
 
-                return !hasBudgetCategory;
-            })
-        }
-        return transactions
-        .filter(transaction => {
-            try{
-                const category = allCategories
-                    .find(category => category.id === transaction.categoryId);
-                const parentCategoryName = category.parentCategory.name;
+    const filteredTransactionsBySelectedParentCategory = useMemo(() => {
+    if (typeof selectedParentCategoryId === 'undefined') {
+      return budget.transactions;
+    }
 
-                return parentCategoryName === selectedParentCategoryId;
-            }catch(error){
-                return false;
-                }      
-            })
-        },
-        [allCategories, budgetedCategories, selectedParentCategoryId, transactions]
-    );
+    if (selectedParentCategoryId === null) {
+      return budget.transactions.filter(transaction => {
+        const hasBudgetedCategory = budgetedCategories
+          .some(budgetedCategory => budgetedCategory.categoryId === transaction.categoryId);
+
+        return !hasBudgetedCategory;
+      });
+    }
+
+    return budget.transactions.filter(transaction => {
+      try {
+        const parentCategoryName = allCategories.find(category => category.id === transaction.categoryId).parentCategory.name;
+
+        return parentCategoryName === selectedParentCategoryId;
+      } catch (error) {
+        return false;
+      }
+    });
+  }, [selectedParentCategoryId, budget.transactions, allCategories, budgetedCategories]);
 
     const groupedTransactions = useMemo(()=>
         groupBy(
@@ -65,8 +71,5 @@ selectedParentCategoryId }){
 }
 
 export default connect(state => ({
-    transactions: state.budget.budget.transactions,
-    budgetedCategories: state.budget.budgetedCategories,
-    allCategories: state.common.allCategories,
     selectedParentCategoryId: state.budget.selectedParentCategoryId,
 }))(BudgetTransactionList);
