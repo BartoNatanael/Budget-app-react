@@ -44,7 +44,9 @@ function App({ budget, fetchBudget, fetchBudgetedCategories }) {
             Hompepage
           </Route>
           <Route path="/budget">
-            <Budget/>
+            <React.Suspense fallback={<LoadingIndicator/>}>
+              <Budget/>
+            </React.Suspense>
           </Route>
         </Switch>
         </Wrapper>
@@ -56,6 +58,7 @@ function App({ budget, fetchBudget, fetchBudgetedCategories }) {
 
 const queryConfig = {
   suspense: true, 
+  refetchAllOnWindowFocus: false,
 }
 
 

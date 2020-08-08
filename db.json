@@ -152,6 +152,38 @@
       "categoryId": "5",
       "date": "2019-12-18T13:38:41.768Z",
       "budgetId": "1"
+    },
+    {
+      "description": "Piwerko",
+      "amount": 5,
+      "categoryId": "4",
+      "date": "2019-12-24",
+      "budgetId": "1",
+      "id": "sXZL6bY"
+    },
+    {
+      "description": "Piwerko",
+      "amount": 10,
+      "categoryId": "4",
+      "date": "2019-12-24",
+      "budgetId": "1",
+      "id": "PAvypQr"
+    },
+    {
+      "description": "Piwerko",
+      "amount": 15,
+      "categoryId": "4",
+      "date": "2019-12-25",
+      "budgetId": "1",
+      "id": "z4X3reK"
+    },
+    {
+      "description": "Proszek",
+      "amount": 25,
+      "categoryId": "6",
+      "date": "2019-12-26",
+      "budgetId": "1",
+      "id": "dtLNVqk"
     }
   ]
 }
