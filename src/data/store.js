@@ -18,5 +18,5 @@ export default function configureStore(preloadedState) {
     module.hot.accept('data/reducers', () => store.replaceReducer(rootReducer));
   }
 
-  return store
+  return store;
 }

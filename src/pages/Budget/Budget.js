@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { Grid } from './Budget.css'
 import { Modal, Button, SuspenseReactBoundary } from 'components';
 
-import BudgetCategoryList from 'pages/Budget/components/BudgetCategoryList';
-import BudgetTransactionList from 'pages/Budget/components/BudgetTransactionList';
-import AddTransactionView from 'pages/Budget/components/AddTransactionForm';
+const BudgetCategoryList = React.lazy(()=>import('pages/Budget/components/BudgetCategoryList'));
+const BudgetTransactionList = React.lazy(()=> import('pages/Budget/components/BudgetTransactionList'));
+const AddTransactionView = React.lazy(()=>import('pages/Budget/components/AddTransactionForm'));
 
 function Budget () {
+  const [showTransactions, setShowTransactions] = useState(false);
 
     return (
       <>
@@ -22,7 +23,10 @@ function Budget () {
 
           <SuspenseReactBoundary>
             <Button to='budget/transactions/new'>Add new transactions</Button>
-            <BudgetTransactionList/>
+            <Button onClick={()=> setShowTransactions(!showTransactions)}>
+              {showTransactions ? 'Hide Transactions' : "Show Transactions"}
+            </Button>
+            {showTransactions?<BudgetTransactionList/>:null}
           </SuspenseReactBoundary>
 
           </section>
