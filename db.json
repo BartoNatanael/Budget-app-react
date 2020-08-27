@@ -184,6 +184,14 @@
       "date": "2019-12-26",
       "budgetId": "1",
       "id": "dtLNVqk"
+    },
+    {
+      "categoryId": "7",
+      "description": "Kursiwo",
+      "amount": 10,
+      "date": "2020-08-29",
+      "budgetId": "1",
+      "id": "trdJZV-"
     }
   ]
 }

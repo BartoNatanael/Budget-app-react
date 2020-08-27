@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 import API from 'data/fetch';
 import 'styled-components/macro';
 
-import {ToggleableList} from 'components';
+import {ToggleableList, Button} from 'components';
 import ParentCategory from './ParentCategory';
 import CategoryItem from './CategoryItem';
 
@@ -139,6 +139,8 @@ function BudgetCategoryList({ selectParentCategory }) {
                 onClick={handleSelectRestParentCategories}
             />
             </div>
+            <Button>Wybierz budżet</Button>
+            <Button>Dodaj budżet</Button>
         </div>
     )
 }
