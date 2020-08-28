@@ -12,12 +12,12 @@ import CategoryItem from './CategoryItem';
 
 import { selectParentCategory } from 'data/actions/budget.action';
 
-function BudgetCategoryList({ selectParentCategory }) {
+function BudgetCategoryList({ budgetId, selectParentCategory }) {
         
-        const { data: budget } = useQuery(['budget', {id: 1}], API.budget.fetchBudget);
+        const { data: budget } = useQuery(['budget', {id: budgetId}], API.budget.fetchBudget);
         const { data: allCategories } = useQuery('allCategories', API.common.fetchAllCategories);
         const { data: budgetedCategories } = useQuery(
-            ['budgetedCategories', {id: 1}], 
+            ['budgetedCategories', {id: budgetId}], 
             API.budget.fetchBudgetedCategories);
     const { t } = useTranslation();
 
@@ -145,6 +145,8 @@ function BudgetCategoryList({ selectParentCategory }) {
     )
 }
 
-export default connect(null,{
+export default connect(state => ({
+    budgetId : state.budget.selectedBudgetId
+}),{
     selectParentCategory
 })(BudgetCategoryList);
