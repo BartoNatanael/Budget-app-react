@@ -95,12 +95,52 @@
       "budget": 80,
       "categoryId": "6",
       "budgetId": "1"
+    }, {
+      "id": "1",
+      "budget": 120.47,
+      "categoryId": "1",
+      "budgetId": "2"
+    },
+    {
+      "id": "2",
+      "budget": 39.99,
+      "categoryId": "2",
+      "budgetId": "2"
+    },
+    {
+      "id": "3",
+      "budget": 723,
+      "categoryId": "3",
+      "budgetId": "2"
+    },
+    {
+      "id": "4",
+      "budget": 30,
+      "categoryId": "4",
+      "budgetId": "2"
+    },
+    {
+      "id": "5",
+      "budget": 450,
+      "categoryId": "5",
+      "budgetId": "2"
+    },
+    {
+      "id": "6",
+      "budget": 80,
+      "categoryId": "6",
+      "budgetId": "2"
     }
   ],
   "budgets": [
     {
       "id": "1",
       "name": "April",
+      "totalAmount": 2400
+    },
+    {
+      "id": "2",
+      "name": "May",
       "totalAmount": 2400
     }
   ],
@@ -192,6 +232,21 @@
       "date": "2020-08-29",
       "budgetId": "1",
       "id": "trdJZV-"
+    },{
+      "id": "1",
+      "description": "Internet provider",
+      "amount": 120.47,
+      "categoryId": "1",
+      "date": "2019-12-15T20:39:41.768Z",
+      "budgetId": "2"
+    },
+    {
+      "id": "2",
+      "description": "Mobile network provider",
+      "amount": 39.99,
+      "categoryId": "2",
+      "date": "2019-12-10T13:33:21.768Z",
+      "budgetId": "2"
     }
   ]
 }

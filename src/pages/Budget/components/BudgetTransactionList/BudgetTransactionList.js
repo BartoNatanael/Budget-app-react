@@ -8,11 +8,11 @@ import API from 'data/fetch';
 
 import { List, ListItem } from './BudgetTransactionList.css';
 
-function BudgetTransactionList({ selectedParentCategoryId }){
-    const { data: budget } = useQuery(['budget', {id: 1}], API.budget.fetchBudget);
+function BudgetTransactionList({ budgetId, selectedParentCategoryId }){
+    const { data: budget } = useQuery(['budget', {id: budgetId}], API.budget.fetchBudget);
     const { data: allCategories } = useQuery('allCategories', API.common.fetchAllCategories);
     const { data: budgetedCategories } = useQuery(
-        ['budgetedCategories', {id: 1}], 
+        ['budgetedCategories', {id: budgetId}], 
         API.budget.fetchBudgetedCategories);
 
     const filteredTransactionsBySelectedParentCategory = useMemo(() => {
@@ -72,4 +72,5 @@ function BudgetTransactionList({ selectedParentCategoryId }){
 
 export default connect(state => ({
     selectedParentCategoryId: state.budget.selectedParentCategoryId,
+    budgetId: state.budget.selectedBudgetId
 }))(BudgetTransactionList);
