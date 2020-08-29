@@ -1,16 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { useQuery, useMutation } from 'react-query';
 import { useHistory } from 'react-router-dom';
 
 import API from 'data/fetch';
 import AddTransactionForm from './AddTransactionForm';
 
-function AddTransactionView(){
-    const { data: budget } = useQuery(['budget', {id: 1}], API.budget.fetchBudget);
+function AddTransactionView({ budgetId }){
+    const { data: budget } = useQuery(['budget', {id: budgetId}], API.budget.fetchBudget);
     const { data: allCategories } = useQuery('allCategories', API.common.fetchAllCategories);
     const [mutate] = useMutation(API.budget.addTransaction,{
       refetchQueries: [
-        ['budget', {id: 1}],
+        ['budget', {id: budgetId}],
       ],
     });
     const history = useHistory();
@@ -32,4 +33,6 @@ function AddTransactionView(){
     )
 };
 
-export default AddTransactionView;
+export default connect(state => ({
+  budgetId : state.budget.selectedBudgetId,
+}))(AddTransactionView);

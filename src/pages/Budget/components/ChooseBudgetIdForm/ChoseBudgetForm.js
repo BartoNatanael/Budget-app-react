@@ -8,30 +8,30 @@ function ChoseBudgetForm({onSubmit, budgets, id}){
     return(
         <Form
             onSubmit={onSubmit}
+            initialValues={{budget: id}}
             render={({handleSubmit, form, submitting}) => (
                 <form onSubmit={handleSubmit}>
-                    <label>
-                        <Field
-                            name='budget'
-                            component="input"
-                            type="radio"
-                            value={1}
-                        />
-                        April
-                    </label>
-                    <label>
-                        <Field
-                            name='budget'
-                            component="input"
-                            type="radio"
-                            value={2}
-                        />
-                        May
-                    </label>
-
+                    <h1>Choose budget</h1>
+                    {budgets.map(budget =>{
+                        return(
+                            <div key={budget.id}>
+                                <label key={budget.id}>
+                                    <Field
+                                        name='budget'
+                                        component="input"
+                                        type="radio"
+                                        value={budget.id}
+                                    />
+                                {budget.name}
+                                </label>
+                            </div>
+                        )
+                    })}
+                    
+                    <br/>
                     <div className="buttons">
                         <button type="submit" disabled={submitting}>
-                        Submit
+                        Choose
                         </button>
                     </div>
                 </form>
