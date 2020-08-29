@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Form, Field } from 'react-final-form'
+import { Form, Field } from 'react-final-form';
 import { groupBy, noop } from 'lodash';
 
 const required = value => (value ? undefined : 'This field is Required!');

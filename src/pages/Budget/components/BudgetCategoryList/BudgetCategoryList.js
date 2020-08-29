@@ -139,7 +139,7 @@ function BudgetCategoryList({ budgetId, selectParentCategory }) {
                 onClick={handleSelectRestParentCategories}
             />
             </div>
-            <Button>Wybierz budżet</Button>
+            <Button to='/budget/budgetId/chose'>Wybierz budżet</Button>
             <Button>Dodaj budżet</Button>
         </div>
     )

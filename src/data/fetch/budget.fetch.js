@@ -5,6 +5,12 @@ export const fetchBudget = async({id}) => {
     return data;
 };
 
+export const fetchBudgets = async() => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/budgets`);
+    const data = await response.json();
+    return data;
+};
+
 export const fetchBudgetedCategories = async({id}) => {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/budgets/${id}/budgetCategories`);
     const data = await response.json();
