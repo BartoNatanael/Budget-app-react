@@ -143,6 +143,11 @@
       "id": "2",
       "name": "May",
       "totalAmount": 2400
+    },
+    {
+      "name": "JUNE",
+      "totalAmount": 2500,
+      "id": "Csj2fZI"
     }
   ],
   "transactions": [
@@ -265,6 +270,14 @@
       "date": "2019-12-12",
       "budgetId": "2",
       "id": "_P8wJ6-"
+    },
+    {
+      "description": "Piwerko",
+      "amount": 10,
+      "categoryId": "4",
+      "date": "2019-12-12",
+      "budgetId": "Csj2fZI",
+      "id": "Cvz-wyv"
     }
   ]
 }

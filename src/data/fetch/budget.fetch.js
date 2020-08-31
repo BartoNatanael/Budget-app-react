@@ -1,7 +1,6 @@
 export const fetchBudget = async({id}) => {
     const response  = await fetch(`${process.env.REACT_APP_API_URL}/budgets/${id}/?_embed=transactions`);
     const data = await response.json();
-    console.log(data)
     return data;
 };
 
@@ -28,5 +27,18 @@ export const addTransaction = async({budgetId, data}) => {
             body: JSON.stringify(data),
         }
         );
+    return await response.json();
+};
+
+export const addBudget = async({data}) => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/budgets`,
+    {
+        method: "POST",
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    }
+    );
     return await response.json();
 }
