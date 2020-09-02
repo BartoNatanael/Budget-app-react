@@ -8,9 +8,12 @@ import AddBudgetForm from './AddBudgetForm';
 function AddBugetView(){
 
     const [budgetId, setBudgetId] = useState();
+    const { data: budgets } = useQuery('budgets', API.budget.fetchBudgets);
+    const history = useHistory();
 
-    const handleSubmitAddBudget = () => {
-        console.log('Submited')
+    const handleSubmitAddBudget = (data) => {
+        // API.budget.addBudget(data)
+        console.log(data)
     }
     
     return(
