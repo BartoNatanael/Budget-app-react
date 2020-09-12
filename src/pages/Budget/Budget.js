@@ -28,6 +28,7 @@ function Budget () {
             <Button onClick={()=> setShowTransactions(!showTransactions)}>
               {showTransactions ? 'Hide Transactions' : "Show Transactions"}
             </Button>
+            {/* <Button to='budget/modify'></Button> */}
             {showTransactions?<BudgetTransactionList/>:null}
           </SuspenseReactBoundary>
 
@@ -46,6 +47,11 @@ function Budget () {
                 </Modal>
               </Route>
               <Route path='/budget/add'>
+                <Modal>
+                  <AddBudgetView/>
+                </Modal>
+              </Route>
+              <Route path='/budget/modify'>
                 <Modal>
                   <AddBudgetView/>
                 </Modal>

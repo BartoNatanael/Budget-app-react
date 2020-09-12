@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
 import { groupBy } from 'lodash';
-import { useQuery } from 'react-query';
+import { useQuery, useMutation } from 'react-query';
 
 import { formatCurrency, formatDate } from 'utils';
 import API from 'data/fetch';
 
 import { List, ListItem } from './BudgetTransactionList.css';
+import { Button } from 'components';
 
 function BudgetTransactionList({ budgetId, selectedParentCategoryId }){
     const { data: budget } = useQuery(['budget', {id: budgetId}], API.budget.fetchBudget);
@@ -14,6 +15,11 @@ function BudgetTransactionList({ budgetId, selectedParentCategoryId }){
     const { data: budgetedCategories } = useQuery(
         ['budgetedCategories', {id: budgetId}], 
         API.budget.fetchBudgetedCategories);
+    const [mutate] = useMutation(API.budget.deleteTransaction,{
+        refetchQueries: [
+          ['budget', {id: budgetId}],
+        ],
+    });
 
     const filteredTransactionsBySelectedParentCategory = useMemo(() => {
     if (typeof selectedParentCategoryId === 'undefined') {
@@ -48,6 +54,12 @@ function BudgetTransactionList({ budgetId, selectedParentCategoryId }){
         [filteredTransactionsBySelectedParentCategory]
     );
 
+    const deleteTransaction = (id) => {
+      mutate({
+        id
+      })
+    };
+
     return(
        <List>
             {Object.entries(groupedTransactions).map(([key, transactions])=>(
@@ -61,6 +73,7 @@ function BudgetTransactionList({ budgetId, selectedParentCategoryId }){
                                 <div>
                                     {(allCategories.find(category => category.id === transaction.categoryId) || {}).name}
                                     </div>
+                                <Button onClick={() => deleteTransaction(transaction.id)}>Delete</Button>
                             </ListItem>
                         ))}
                     </ul>

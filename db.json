@@ -145,9 +145,14 @@
       "totalAmount": 2400
     },
     {
-      "name": "JUNE",
+      "name": "Pysio budżet",
+      "totalAmount": 22222,
+      "id": "V4jJpgN"
+    },
+    {
+      "name": "January",
       "totalAmount": 2500,
-      "id": "Csj2fZI"
+      "id": "vMljGC6"
     }
   ],
   "transactions": [
@@ -185,14 +190,6 @@
     },
     {
       "id": "5",
-      "description": "Dinner in a restaurant",
-      "amount": 35.68,
-      "categoryId": "null",
-      "date": "2019-12-22T15:33:11.768Z",
-      "budgetId": "1"
-    },
-    {
-      "id": "5",
       "description": "Grocery shopping #1",
       "amount": 12.38,
       "categoryId": "5",
@@ -216,14 +213,6 @@
       "id": "PAvypQr"
     },
     {
-      "description": "Piwerko",
-      "amount": 15,
-      "categoryId": "4",
-      "date": "2019-12-25",
-      "budgetId": "1",
-      "id": "z4X3reK"
-    },
-    {
       "description": "Proszek",
       "amount": 25,
       "categoryId": "6",
@@ -240,7 +229,7 @@
       "id": "trdJZV-"
     },
     {
-      "id": "1",
+      "id": "8",
       "description": "Internet provider",
       "amount": 120.47,
       "categoryId": "1",
@@ -248,7 +237,7 @@
       "budgetId": "2"
     },
     {
-      "id": "2",
+      "id": "9",
       "description": "Mobile network provider",
       "amount": 39.99,
       "categoryId": "2",
@@ -272,12 +261,28 @@
       "id": "_P8wJ6-"
     },
     {
-      "description": "Piwerko",
-      "amount": 10,
+      "description": "Pysiowe Piwerko",
+      "amount": 2323,
       "categoryId": "4",
-      "date": "2019-12-12",
-      "budgetId": "Csj2fZI",
-      "id": "Cvz-wyv"
+      "date": "2020-12-12",
+      "budgetId": "V4jJpgN",
+      "id": "gxnLDki"
+    },
+    {
+      "description": "Opłata za neta",
+      "amount": 20,
+      "date": "2020-12-12",
+      "categoryId": "2",
+      "budgetId": "V4jJpgN",
+      "id": "J-soqbc"
+    },
+    {
+      "description": "Winko dla Pyciów",
+      "amount": 12,
+      "categoryId": "4",
+      "date": "2020-09-12",
+      "budgetId": "V4jJpgN",
+      "id": "oG69F9-"
     }
   ]
 }
