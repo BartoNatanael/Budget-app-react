@@ -237,6 +237,14 @@
       "budgetId": "2"
     },
     {
+      "id": "8",
+      "description": "Internet provider",
+      "amount": 120.47,
+      "categoryId": "1",
+      "date": "2019-12-15T20:39:41.768Z",
+      "budgetId": "2"
+    },
+    {
       "id": "9",
       "description": "Mobile network provider",
       "amount": 39.99,
