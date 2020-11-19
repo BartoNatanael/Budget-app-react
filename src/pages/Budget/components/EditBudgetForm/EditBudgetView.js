@@ -69,9 +69,7 @@ function AddTransactionView({ budgetId }){
                     if (budgetWithCategories.budgetCategories.find(category => category.id === allCategories.find(category => category.name === name).id)){
                         
                         const obj = (budgetWithCategories.budgetCategories.find(category => category.id === allCategories.find(category => category.name === name).id))
-                        console.log(obj)
                         obj.budget = value
-                        console.log(obj)
 
                         mutateCategory({
                             type: "PUT",
@@ -90,46 +88,16 @@ function AddTransactionView({ budgetId }){
                         })
                     }
                 } else {
-                    console.log(budgetWithCategories.budgetCategories)
                     const obj = (budgetWithCategories.budgetCategories.find(category => category.categoryId === allCategories.find(category => category.name === name).id))
-                    console.log('0', obj)
                     deleteCategory({
                         budgetCategoryId: obj.id
                     })
                 }
             }
-
         }
 
-        // console.log(obj)
-        // mutateBudget({
-        //     budgetId: budgetId,
-        //     obj: obj
-        // })
-
-
-        // for(const [name, value] of Object.entries(values)){
-
-        //   if (name === 'name'){
-        //     mutateBudget({
-        //       budgetId:budgetId, 
-        //       obj: {
-        //         id: budgetId,
-        //         name: value,
-        //         totalAmount: budgetWithCategories.totalAmount
-        //       }});
-        //   } else if (name === 'totalAmount'){
-        //     mutateBudget({
-        //       budgetId:budgetId, 
-        //       obj: {
-        //         id: budgetId,
-        //         name: budgetWithCategories.name,
-        //         totalAmount: value
-        //       }});
-        //   } else {
-        //     console.log('mamy to gdzieś', name, value)
-        //   }
-        // }
+        history.goBack();
+      
       }
     return(
         <EditBudgetForm
