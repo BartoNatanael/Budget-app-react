@@ -62,7 +62,7 @@
   "budgetCategories": [
     {
       "id": "1",
-      "budget": 120.47,
+      "budget": 123,
       "categoryId": "1",
       "budgetId": "1"
     },
@@ -137,12 +137,12 @@
     {
       "id": "1",
       "name": "April",
-      "totalAmount": 2400
+      "totalAmount": "2500"
     },
     {
-      "id": "2",
       "name": "May",
-      "totalAmount": 2400
+      "totalAmount": 2400,
+      "id": "2"
     },
     {
       "name": "Pysio budżet",
@@ -153,6 +153,16 @@
       "name": "January",
       "totalAmount": 2500,
       "id": "vMljGC6"
+    },
+    {
+      "name": "Fajny budżet",
+      "totalAmount": 3000,
+      "id": "50kFxNm"
+    },
+    {
+      "name": "Fajny budżet",
+      "totalAmount": 3212,
+      "id": "x7c-TB4"
     }
   ],
   "transactions": [
@@ -205,22 +215,6 @@
       "id": "sXZL6bY"
     },
     {
-      "description": "Piwerko",
-      "amount": 10,
-      "categoryId": "4",
-      "date": "2019-12-24",
-      "budgetId": "1",
-      "id": "PAvypQr"
-    },
-    {
-      "description": "Proszek",
-      "amount": 25,
-      "categoryId": "6",
-      "date": "2019-12-26",
-      "budgetId": "1",
-      "id": "dtLNVqk"
-    },
-    {
       "categoryId": "7",
       "description": "Kursiwo",
       "amount": 10,
@@ -229,15 +223,7 @@
       "id": "trdJZV-"
     },
     {
-      "id": "8",
-      "description": "Internet provider",
-      "amount": 120.47,
-      "categoryId": "1",
-      "date": "2019-12-15T20:39:41.768Z",
-      "budgetId": "2"
-    },
-    {
-      "id": "8",
+      "id": "10",
       "description": "Internet provider",
       "amount": 120.47,
       "categoryId": "1",
@@ -251,14 +237,6 @@
       "categoryId": "2",
       "date": "2019-12-10T13:33:21.768Z",
       "budgetId": "2"
-    },
-    {
-      "description": "Piwerko",
-      "amount": 5,
-      "categoryId": "4",
-      "date": "2012-12-12",
-      "budgetId": "1",
-      "id": "dKJB7Mt"
     },
     {
       "description": "Piwerko",
@@ -283,14 +261,6 @@
       "categoryId": "2",
       "budgetId": "V4jJpgN",
       "id": "J-soqbc"
-    },
-    {
-      "description": "Winko dla Pyciów",
-      "amount": 12,
-      "categoryId": "4",
-      "date": "2020-09-12",
-      "budgetId": "V4jJpgN",
-      "id": "oG69F9-"
     }
   ]
 }

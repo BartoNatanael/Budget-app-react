@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useQuery, useMutation } from 'react-query';
+import React from 'react';
+import { useMutation } from 'react-query';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -9,8 +9,6 @@ import { selectBudgetId } from 'data/actions/budget.action';
 
 function AddBugetView({ selectBudgetId }){
 
-    const [budgetId, setBudgetId] = useState();
-    const { data: budgets } = useQuery('budgets', API.budget.fetchBudgets);
     const [mutate] = useMutation(API.budget.addBudget,{
         refetchQueries: 
           ['budgets']
@@ -36,7 +34,6 @@ function AddBugetView({ selectBudgetId }){
     return(
         <AddBudgetForm
             onSubmitBudget={handleSubmitAddBudget}
-            budgetId={budgetId}
         />
     )
 };
