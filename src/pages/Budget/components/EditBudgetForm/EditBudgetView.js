@@ -5,8 +5,9 @@ import { useHistory } from 'react-router-dom';
 
 import API from 'data/fetch';
 import EditBudgetForm from './EditBudgetForm';
+import { setBudgetedCategories } from 'data/actions/budget.action';
 
-function AddTransactionView({ budgetId }){
+function AddTransactionView({ budgetId, actualBudgetedCategories, setBudgetedCategories }){
     const { data: budgetWithCategories } = useQuery(['budgetWithCategories', {id: budgetId}], API.budget.fetchBudgetWithCategories);
     const { data: allCategories } = useQuery('allCategories', API.common.fetchAllCategories);
     const { data: oneBudget } = useQuery(['oneBudget', {id: budgetId}], API.budget.fetchOneBudget);
@@ -45,20 +46,20 @@ function AddTransactionView({ budgetId }){
         return {name: category.name, id: category.id, budget: value}
     })
     
-    const handleSubmitAddTransaction = (values) => {
+    const handleSubmitAddTransaction = async (values) => {
 
         for (const [name, value] of Object.entries(values)) {
             if (name === 'name'){
                 const obj = oneBudget;
                 obj.name = value;
-                mutateBudget({
+                await mutateBudget({
                     budgetId: budgetId,
                     obj: obj
                 })
             } else if (name === 'totalAmount'){
                 const obj = oneBudget;
                 obj.totalAmount = value;
-                mutateBudget({
+                await mutateBudget({
                     budgetId: budgetId,
                     obj: obj
                 })
@@ -71,7 +72,7 @@ function AddTransactionView({ budgetId }){
                         const obj = (budgetWithCategories.budgetCategories.find(category => category.id === allCategories.find(category => category.name === name).id))
                         obj.budget = value
 
-                        mutateCategory({
+                        await mutateCategory({
                             type: "PUT",
                             budgetCategoryId: obj.id,
                             obj: obj
@@ -83,19 +84,18 @@ function AddTransactionView({ budgetId }){
                             budgetId: budgetId.toString(10),
                             categoryId: allCategories.find(category => category.name === name).id,
                         }
-                        addCategory({
+                        await addCategory({
                             obj: obj
                         })
                     }
                 } else {
                     const obj = (budgetWithCategories.budgetCategories.find(category => category.categoryId === allCategories.find(category => category.name === name).id))
-                    deleteCategory({
+                    await deleteCategory({
                         budgetCategoryId: obj.id
                     })
                 }
             }
         }
-
         history.goBack();
       
       }
@@ -110,4 +110,7 @@ function AddTransactionView({ budgetId }){
 
 export default connect(state => ({
   budgetId : state.budget.selectedBudgetId,
-}))(AddTransactionView);
+  actualBudgetedCategories: state.budget.budgetedCategories
+}), {
+  setBudgetedCategories
+})(AddTransactionView);

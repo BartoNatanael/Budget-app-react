@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 
-function ChoseBudgetForm({onSubmit, budgets, id}){
+function DeleteBudgetForm({onSubmit, budgets, id}){
 
     return(
         <Form
@@ -9,7 +9,7 @@ function ChoseBudgetForm({onSubmit, budgets, id}){
             initialValues={{budget: id}}
             render={({handleSubmit, form, submitting}) => (
                 <form onSubmit={handleSubmit}>
-                    <h1>Choose budget</h1>
+                    <h1>Delete budget</h1>
                     {budgets.map(budget =>{
                         return(
                             <div key={budget.id}>
@@ -38,4 +38,4 @@ function ChoseBudgetForm({onSubmit, budgets, id}){
     )
 };
 
-export default ChoseBudgetForm;
+export default DeleteBudgetForm;

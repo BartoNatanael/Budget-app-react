@@ -10,6 +10,7 @@ const AddTransactionView = React.lazy(()=>import('pages/Budget/components/AddTra
 const ChooseBudgetView = React.lazy(()=>import('pages/Budget/components/ChooseBudgetIdForm'));
 const AddBudgetView = React.lazy(()=>import('pages/Budget/components/AddBudgetForm'));
 const EditBudgetView = React.lazy(()=>import('pages/Budget/components/EditBudgetForm'));
+const DeleteBudgetView = React.lazy(()=>import('pages/Budget/components/DeleteBudgetForm'));
 
 function Budget () {
   const [showTransactions, setShowTransactions] = useState(false);
@@ -55,6 +56,11 @@ function Budget () {
               <Route path='/budget/modify'>
                 <Modal>
                   <EditBudgetView/>
+                </Modal>
+              </Route>
+              <Route path='/budget/delete'>
+                <Modal>
+                  <DeleteBudgetView/>
                 </Modal>
               </Route>
         </Switch>

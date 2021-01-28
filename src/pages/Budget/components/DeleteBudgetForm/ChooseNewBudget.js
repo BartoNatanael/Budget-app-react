@@ -1,8 +1,7 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 
-function ChoseBudgetForm({onSubmit, budgets, id}){
-
+function ChooseNewBudget({onSubmit, newBudgetList, id}){
     return(
         <Form
             onSubmit={onSubmit}
@@ -10,7 +9,7 @@ function ChoseBudgetForm({onSubmit, budgets, id}){
             render={({handleSubmit, form, submitting}) => (
                 <form onSubmit={handleSubmit}>
                     <h1>Choose budget</h1>
-                    {budgets.map(budget =>{
+                    {newBudgetList.map(budget =>{
                         return(
                             <div key={budget.id}>
                                 <label key={budget.id}>
@@ -38,4 +37,4 @@ function ChoseBudgetForm({onSubmit, budgets, id}){
     )
 };
 
-export default ChoseBudgetForm;
+export default ChooseNewBudget;

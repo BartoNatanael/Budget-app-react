@@ -1,6 +1,8 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { noop } from 'lodash';
+import { connect } from 'react-redux';
+import { setBudgetedCategories } from 'data/actions/budget.action';
 
 function EditBudgetForm({ onSubmitBudget = noop, budget, budgetToEdit }){
     return(

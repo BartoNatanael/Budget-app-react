@@ -10,22 +10,23 @@ import {ToggleableList, Button} from 'components';
 import ParentCategory from './ParentCategory';
 import CategoryItem from './CategoryItem';
 
-import { selectParentCategory } from 'data/actions/budget.action';
+import { selectParentCategory, setBudgetedCategories } from 'data/actions/budget.action';
 
-function BudgetCategoryList({ budgetId, selectParentCategory }) {
+function BudgetCategoryList({ budgetId, actualBudgetedCategories, selectParentCategory, setBudgetedCategories }) {
         
-        const { data: budget } = useQuery(['budget', {id: budgetId}], API.budget.fetchBudget);
-        const { data: allCategories } = useQuery('allCategories', API.common.fetchAllCategories);
-        const { data: budgetedCategories } = useQuery(
+    const { data: budget } = useQuery(['budget', {id: budgetId}], API.budget.fetchBudget);
+    const { data: allCategories } = useQuery('allCategories', API.common.fetchAllCategories);
+    const { data: budgetedCategories } = useQuery(
             ['budgetedCategories', {id: budgetId}], 
             API.budget.fetchBudgetedCategories);
     const { t } = useTranslation();
-
+    setBudgetedCategories(budgetedCategories);
+    console.log(actualBudgetedCategories);
     const budgetedCategoriesByParent = useMemo(
         () => groupBy(
-            budgetedCategories, 
+          actualBudgetedCategories, 
             item => allCategories.find(category => category.id === item.categoryId).parentCategory.name),
-        [budgetedCategories, allCategories],
+        [actualBudgetedCategories, allCategories],
       );
 
     const handleClickParentCategoryRef = useRef(null);
@@ -141,12 +142,15 @@ function BudgetCategoryList({ budgetId, selectParentCategory }) {
             </div>
             <Button to='/budget/choose'>Wybierz budżet</Button>
             <Button to='/budget/add'>Dodaj budżet</Button>
+            <Button to='/budget/delete'>Usuń budżet</Button>
         </div>
     )
 }
 
 export default connect(state => ({
-    budgetId : state.budget.selectedBudgetId
+    budgetId : state.budget.selectedBudgetId,
+    actualBudgetedCategories: state.budget.budgetedCategories
 }),{
-    selectParentCategory
+    selectParentCategory,
+    setBudgetedCategories
 })(BudgetCategoryList);

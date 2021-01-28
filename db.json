@@ -269,6 +269,14 @@
       "date": "2020-12-12",
       "budgetId": "x7c-TB4",
       "id": "3SJgkIF"
+    },
+    {
+      "description": "Piwerko",
+      "amount": 100,
+      "categoryId": "4",
+      "date": "2021-12-12",
+      "budgetId": "50kFxNm",
+      "id": "Dn_wbiE"
     }
   ]
 }
