@@ -11,6 +11,7 @@ import ParentCategory from './ParentCategory';
 import CategoryItem from './CategoryItem';
 
 import { selectParentCategory, setBudgetedCategories } from 'data/actions/budget.action';
+import { useEffect } from 'react';
 
 function BudgetCategoryList({ budgetId, actualBudgetedCategories, selectParentCategory, setBudgetedCategories }) {
         
@@ -20,8 +21,12 @@ function BudgetCategoryList({ budgetId, actualBudgetedCategories, selectParentCa
             ['budgetedCategories', {id: budgetId}], 
             API.budget.fetchBudgetedCategories);
     const { t } = useTranslation();
+    // useEffect(() => {
+    //   console.log(budgetedCategories)
+    //   setBudgetedCategories(budgetedCategories);
+    // }, [budgetId]);
+    console.log(budgetedCategories)
     setBudgetedCategories(budgetedCategories);
-    console.log(actualBudgetedCategories);
     const budgetedCategoriesByParent = useMemo(
         () => groupBy(
           actualBudgetedCategories, 

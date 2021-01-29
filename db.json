@@ -131,6 +131,18 @@
       "budget": 80,
       "categoryId": "6",
       "budgetId": "2"
+    },
+    {
+      "id": "d087c893-1b36-4856-a1d2-f7ca61e5c88b",
+      "budget": 100,
+      "budgetId": "50kFxNm",
+      "categoryId": "2"
+    },
+    {
+      "id": "07956e3b-17cc-461b-822b-377e6b386ad4",
+      "budget": 45,
+      "budgetId": "50kFxNm",
+      "categoryId": "1"
     }
   ],
   "budgets": [
@@ -156,7 +168,7 @@
     },
     {
       "name": "Fajny budżet",
-      "totalAmount": 3000,
+      "totalAmount": "2900",
       "id": "50kFxNm"
     },
     {

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useQuery, useMutation } from 'react-query';
 import { useHistory } from 'react-router-dom';
+import { v4 } from 'uuid';
 
 import API from 'data/fetch';
 import EditBudgetForm from './EditBudgetForm';
@@ -80,13 +81,17 @@ function AddTransactionView({ budgetId, actualBudgetedCategories, setBudgetedCat
 
                     } else {
                         const obj = {
+                            id: v4(),
                             budget: value,
                             budgetId: budgetId.toString(10),
                             categoryId: allCategories.find(category => category.name === name).id,
                         }
+                        console.log(obj);
                         await addCategory({
                             obj: obj
-                        })
+                        });
+                        actualBudgetedCategories.push(obj);
+                        await setBudgetedCategories(actualBudgetedCategories);
                     }
                 } else {
                     const obj = (budgetWithCategories.budgetCategories.find(category => category.categoryId === allCategories.find(category => category.name === name).id))
