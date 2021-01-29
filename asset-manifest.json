@@ -1,0 +1,41 @@
+{
+  "files": {
+    "static/js/0.0d7102c5.chunk.js": "/Budget-app-react/static/js/0.0d7102c5.chunk.js",
+    "static/js/0.0d7102c5.chunk.js.map": "/Budget-app-react/static/js/0.0d7102c5.chunk.js.map",
+    "static/js/1.d720688d.chunk.js": "/Budget-app-react/static/js/1.d720688d.chunk.js",
+    "static/js/1.d720688d.chunk.js.map": "/Budget-app-react/static/js/1.d720688d.chunk.js.map",
+    "main.js": "/Budget-app-react/static/js/main.ca72f009.chunk.js",
+    "main.js.map": "/Budget-app-react/static/js/main.ca72f009.chunk.js.map",
+    "runtime-main.js": "/Budget-app-react/static/js/runtime-main.c9145a06.js",
+    "runtime-main.js.map": "/Budget-app-react/static/js/runtime-main.c9145a06.js.map",
+    "static/css/4.d34346ea.chunk.css": "/Budget-app-react/static/css/4.d34346ea.chunk.css",
+    "static/js/4.ff6bb868.chunk.js": "/Budget-app-react/static/js/4.ff6bb868.chunk.js",
+    "static/js/4.ff6bb868.chunk.js.map": "/Budget-app-react/static/js/4.ff6bb868.chunk.js.map",
+    "static/js/5.c48dda2d.chunk.js": "/Budget-app-react/static/js/5.c48dda2d.chunk.js",
+    "static/js/5.c48dda2d.chunk.js.map": "/Budget-app-react/static/js/5.c48dda2d.chunk.js.map",
+    "static/js/6.649c0482.chunk.js": "/Budget-app-react/static/js/6.649c0482.chunk.js",
+    "static/js/6.649c0482.chunk.js.map": "/Budget-app-react/static/js/6.649c0482.chunk.js.map",
+    "static/js/7.940fe6ad.chunk.js": "/Budget-app-react/static/js/7.940fe6ad.chunk.js",
+    "static/js/7.940fe6ad.chunk.js.map": "/Budget-app-react/static/js/7.940fe6ad.chunk.js.map",
+    "static/js/8.2bf00cb9.chunk.js": "/Budget-app-react/static/js/8.2bf00cb9.chunk.js",
+    "static/js/8.2bf00cb9.chunk.js.map": "/Budget-app-react/static/js/8.2bf00cb9.chunk.js.map",
+    "static/js/9.8bfb9a17.chunk.js": "/Budget-app-react/static/js/9.8bfb9a17.chunk.js",
+    "static/js/9.8bfb9a17.chunk.js.map": "/Budget-app-react/static/js/9.8bfb9a17.chunk.js.map",
+    "static/js/10.414124ac.chunk.js": "/Budget-app-react/static/js/10.414124ac.chunk.js",
+    "static/js/10.414124ac.chunk.js.map": "/Budget-app-react/static/js/10.414124ac.chunk.js.map",
+    "static/js/11.460f87dd.chunk.js": "/Budget-app-react/static/js/11.460f87dd.chunk.js",
+    "static/js/11.460f87dd.chunk.js.map": "/Budget-app-react/static/js/11.460f87dd.chunk.js.map",
+    "index.html": "/Budget-app-react/index.html",
+    "precache-manifest.31988914d665a40a627796b9c1a7caae.js": "/Budget-app-react/precache-manifest.31988914d665a40a627796b9c1a7caae.js",
+    "service-worker.js": "/Budget-app-react/service-worker.js",
+    "static/css/4.d34346ea.chunk.css.map": "/Budget-app-react/static/css/4.d34346ea.chunk.css.map",
+    "static/js/0.0d7102c5.chunk.js.LICENSE.txt": "/Budget-app-react/static/js/0.0d7102c5.chunk.js.LICENSE.txt",
+    "static/js/4.ff6bb868.chunk.js.LICENSE.txt": "/Budget-app-react/static/js/4.ff6bb868.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c9145a06.js",
+    "static/css/4.d34346ea.chunk.css",
+    "static/js/4.ff6bb868.chunk.js",
+    "static/js/main.ca72f009.chunk.js"
+  ]
+}
