@@ -41,7 +41,9 @@ function App({ budget, fetchBudget, fetchBudgetedCategories }) {
         <Wrapper>
           <Switch>
           <Route exact path="/">
-            Hompepage
+            <React.Suspense fallback={<LoadingIndicator/>}>
+              Homepage
+            </React.Suspense>
           </Route>
           <Route path="/budget">
             <React.Suspense fallback={<LoadingIndicator/>}>
